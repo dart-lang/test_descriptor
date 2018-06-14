@@ -1,3 +1,11 @@
+## 1.1.0
+
+* Add a `path()` function that returns the a path within the sandbox directory.
+
+* Add `io` getters to `FileDescriptor` and `DirectoryDescriptor` that returns
+  `dart:io` `File` and `Directory` objects, respectively, within the sandbox
+  directory.
+
 ## 1.0.3
 
 * Stop using comment-based generics.
