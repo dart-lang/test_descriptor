@@ -6,6 +6,10 @@
   `dart:io` `File` and `Directory` objects, respectively, within the sandbox
   directory.
 
+## 1.0.4
+
+* Support test `1.x.x'.
+
 ## 1.0.3
 
 * Stop using comment-based generics.
