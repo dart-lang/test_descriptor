@@ -248,12 +248,10 @@ void main() {
   });
 
   test("archive returns the in-memory contents", () async {
-    var archive = await d
-        .archive("test.tar", [
-          d.file("file1.txt", "contents 1"),
-          d.file("file2.txt", "contents 2")
-        ])
-        .archive;
+    var archive = await d.archive("test.tar", [
+      d.file("file1.txt", "contents 1"),
+      d.file("file2.txt", "contents 2")
+    ]).archive;
 
     var files = archive.files;
     expect(files.length, equals(2));
