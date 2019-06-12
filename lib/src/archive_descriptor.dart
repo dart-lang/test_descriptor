@@ -130,7 +130,7 @@ class ArchiveDescriptor extends Descriptor implements FileDescriptor {
         } on TestFailure catch (error) {
           // Replace the temporary directory with the path to the archive to
           // make the error more user-friendly.
-          throw TestFailure(error.message.replaceAll(tempDir, pretty));
+          fail(error.message.replaceAll(tempDir, pretty));
         }
       }));
     } finally {
