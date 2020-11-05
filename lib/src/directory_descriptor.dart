@@ -75,11 +75,10 @@ class DirectoryDescriptor extends Descriptor {
 
   /// Treats this descriptor as a virtual filesystem and loads the binary
   /// contents of the [FileDescriptor] at the given relative [path].
-  ///
-  /// The [parents] parameter should only be passed by subclasses of
-  /// [DirectoryDescriptor] that are recursively calling [load]. It's the
-  /// URL-format path of the directories that have been loaded so far.
-  Stream<List<int>> load(String path, [String? parents]) {
+  Stream<List<int>> load(String path) => _load(path);
+
+  /// Implementation of [load], tracks parents through recursive calls.
+  Stream<List<int>> _load(String path, [String? parents]) {
     if (!p.url.isWithin('.', path)) {
       throw ArgumentError.value(
           path, 'path', 'must be relative and beneath the base URL.');
@@ -107,7 +106,7 @@ class DirectoryDescriptor extends Descriptor {
           return (matchingEntries.first as FileDescriptor).readAsBytes();
         } else {
           return (matchingEntries.first as DirectoryDescriptor)
-              .load(p.url.joinAll(remainingPath), parentsAndSelf);
+              ._load(p.url.joinAll(remainingPath), parentsAndSelf);
         }
       }
     }));
