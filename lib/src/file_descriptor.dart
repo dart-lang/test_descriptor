@@ -114,7 +114,7 @@ class _BinaryFileDescriptor extends FileDescriptor {
 
   @override
   Future<void> _validate(String prettPath, List<int> actualContents) async {
-    if (const IterableEquality().equals(_contents, actualContents)) return null;
+    if (const IterableEquality().equals(_contents, actualContents)) return;
     // TODO(nweiz): show a hex dump here if the data is small enough.
     fail('File "$prettPath" didn\'t contain the expected binary data.');
   }
@@ -136,7 +136,7 @@ class _StringFileDescriptor extends FileDescriptor {
   @override
   void _validate(String prettyPath, List<int> actualContents) {
     var actualContentsText = utf8.decode(actualContents);
-    if (_contents == actualContentsText) return null;
+    if (_contents == actualContentsText) return;
     fail(_textMismatchMessage(prettyPath, _contents, actualContentsText));
   }
 
