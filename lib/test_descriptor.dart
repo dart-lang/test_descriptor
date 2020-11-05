@@ -40,7 +40,7 @@ FileDescriptor file(String name, [contents]) => FileDescriptor(name, contents);
 /// children of the physical diretory, but it *doesn't* require that no other
 /// children exist. To ensure that a particular child doesn't exist, use
 /// [nothing].
-DirectoryDescriptor dir(String name, [Iterable<Descriptor> contents]) =>
+DirectoryDescriptor dir(String name, [Iterable<Descriptor>? contents]) =>
     DirectoryDescriptor(name, contents ?? <Descriptor>[]);
 
 /// Creates a new [NothingDescriptor] descriptor that asserts that no entry
@@ -70,7 +70,7 @@ PatternDescriptor filePattern(Pattern name, [contents]) =>
 
 /// A convenience method for creating a [PatternDescriptor] descriptor that
 /// constructs a [DirectoryDescriptor] descriptor.
-PatternDescriptor dirPattern(Pattern name, [Iterable<Descriptor> contents]) =>
+PatternDescriptor dirPattern(Pattern name, [Iterable<Descriptor>? contents]) =>
     pattern(name, (realName) => dir(realName, contents));
 
 /// Returns [path] within the [sandbox] directory.
