@@ -87,7 +87,7 @@ abstract class FileDescriptor extends Descriptor {
   ///
   /// The [prettyPath] is a human-friendly representation of the path to the
   /// descriptor.
-  FutureOr<void> /*!*/ _validate(String prettyPath, List<int> binaryContents);
+  FutureOr<void> _validate(String prettyPath, List<int> binaryContents);
 
   /// Reads and decodes the contents of this descriptor as a UTF-8 string.
   ///
