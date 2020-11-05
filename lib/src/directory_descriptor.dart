@@ -41,7 +41,7 @@ class DirectoryDescriptor extends Descriptor {
         name,
         Directory(path).listSync().map((entity) {
           // Ignore hidden files.
-          if (p.basename(entity.path).startsWith('.')) return;
+          if (p.basename(entity.path).startsWith('.')) return null;
 
           if (entity is Directory) {
             return DirectoryDescriptor.fromFilesystem(
@@ -51,7 +51,7 @@ class DirectoryDescriptor extends Descriptor {
                 p.basename(entity.path), entity.readAsBytesSync());
           }
           // Ignore broken symlinks.
-          return;
+          return null;
         }).whereType<Descriptor>());
   }
 
