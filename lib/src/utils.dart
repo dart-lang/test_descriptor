@@ -112,6 +112,7 @@ Future<List<T>> waitAndReportErrors<T>(Iterable<Future<T>> futures) {
           // Avoid async/await so that we synchronously add error handlers for the
           // futures to keep them from top-leveling.
           future.catchError(
+        // ignore: body_might_complete_normally_catch_error
         (Object error, StackTrace stackTrace) {
           if (!errored) {
             errored = true;
