@@ -1,3 +1,6 @@
+> [!IMPORTANT]  
+> This repo has moved to https://github.com/dart-lang/test/tree/master/pkgs/test_descriptor
+
 [![Dart CI](https://github.com/dart-lang/test_descriptor/actions/workflows/test-package.yml/badge.svg)](https://github.com/dart-lang/test_descriptor/actions/workflows/test-package.yml)
 [![pub package](https://img.shields.io/pub/v/test_descriptor.svg)](https://pub.dev/packages/test_descriptor)
 [![package publisher](https://img.shields.io/pub/publisher/test_descriptor.svg)](https://pub.dev/packages/test_descriptor/publisher)
